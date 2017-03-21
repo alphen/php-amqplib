@@ -1,8 +1,8 @@
 <?php
 
-namespace PhpAmqpLib\Tests\Functional;
+namespace AmqpLib\Tests\Functional;
 
-use PhpAmqpLib\Connection\AMQPStreamConnection;
+use AmqpLib\Connection\AMQPStreamConnection;
 
 class StreamIOTest extends \PHPUnit_Framework_TestCase
 {

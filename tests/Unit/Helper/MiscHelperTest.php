@@ -1,8 +1,8 @@
 <?php
 
-namespace PhpAmqpLib\Tests\Unit\Helper\Protocol;
+namespace AmqpLib\Tests\Unit\Helper\Protocol;
 
-use PhpAmqpLib\Helper\MiscHelper;
+use AmqpLib\Helper\MiscHelper;
 
 class MiscHelperTest extends \PHPUnit_Framework_TestCase
 {

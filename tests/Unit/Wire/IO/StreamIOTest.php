@@ -2,9 +2,9 @@
 /**
  * Tests StreamIO.
  */
-namespace PhpAmqpLib\Tests\Unit\Wire\IO;
+namespace AmqpLib\Tests\Unit\Wire\IO;
 
-use \PhpAmqpLib\Wire\IO\StreamIO;
+use \AmqpLib\Wire\IO\StreamIO;
 
 class StreamIOTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace PhpAmqpLib\Tests\Unit;
+namespace AmqpLib\Tests\Unit;
 
-use PhpAmqpLib\Wire\AMQPArray;
-use PhpAmqpLib\Wire\AMQPReader;
-use PhpAmqpLib\Wire\AMQPTable;
-use PhpAmqpLib\Wire\AMQPWriter;
+use AmqpLib\Wire\AMQPArray;
+use AmqpLib\Wire\AMQPReader;
+use AmqpLib\Wire\AMQPTable;
+use AmqpLib\Wire\AMQPWriter;
 
 class WireTest extends \PHPUnit_Framework_TestCase
 {
@@ -70,14 +70,14 @@ class WireTest extends \PHPUnit_Framework_TestCase
 
     public function testOctetOutOfRangeLower()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->octetWriteRead(-1);
         $this->fail('Overflow not detected!');
     }
 
     public function testOctetOutOfRangeUpper()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->octetWriteRead(256);
         $this->fail('Overflow not detected!');
     }
@@ -96,14 +96,14 @@ class WireTest extends \PHPUnit_Framework_TestCase
 
     public function testSignedOctetOutOfRangeLower()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->signedOctetWriteRead(-129);
         $this->fail('Overflow not detected!');
     }
 
     public function testSignedOctetOutOfRangeUpper()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->signedOctetWriteRead(128);
         $this->fail('Overflow not detected!');
     }
@@ -115,7 +115,7 @@ class WireTest extends \PHPUnit_Framework_TestCase
         $this->shortWriteRead(65535);
 
         $this->setExpectedException(
-            '\PhpAmqpLib\Exception\AMQPInvalidArgumentException',
+            '\AmqpLib\Exception\AMQPInvalidArgumentException',
             'Short out of range: 65536'
         );
         $this->shortWriteRead(65536);
@@ -128,14 +128,14 @@ class WireTest extends \PHPUnit_Framework_TestCase
 
     public function testShortOutOfRangeLower()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->shortWriteRead(-1);
         $this->fail('Overflow not detected!');
     }
 
     public function testShortOutOfRangeUpper()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->shortWriteRead(65536);
         $this->fail('Overflow not detected!');
     }
@@ -155,14 +155,14 @@ class WireTest extends \PHPUnit_Framework_TestCase
 
     public function testSignedShortOutOfRangeLower()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->signedShortWriteRead(-32769);
         $this->fail('Overflow not detected!');
     }
 
     public function testSignedShortOutOfRangeUpper()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->signedShortWriteRead(32768);
         $this->fail('Overflow not detected!');
     }
@@ -197,14 +197,14 @@ class WireTest extends \PHPUnit_Framework_TestCase
 
     public function testLongOutOfRangeLower()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->longWriteRead(-1);
         $this->fail('Overflow not detected!');
     }
 
     public function testLongOutOfRangeUpper()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->longWriteRead('4294967296');
         $this->fail('Overflow not detected!');
     }
@@ -239,14 +239,14 @@ class WireTest extends \PHPUnit_Framework_TestCase
 
     public function testSignedLongOutOfRangeLower()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->signedLongWriteRead('-2147483649');
         $this->fail('Overflow not detected!');
     }
 
     public function testSignedLongOutOfRangeUpper()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->signedLongWriteRead('2147483648');
         $this->fail('Overflow not detected!');
     }
@@ -286,14 +286,14 @@ class WireTest extends \PHPUnit_Framework_TestCase
 
     public function testLonglongOutOfRangeLower()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->longlongWriteRead(-1);
         $this->fail('Overflow not detected!');
     }
 
     public function testLonglongOutOfRangeUpper()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->longlongWriteRead('18446744073709551616');
         $this->fail('Overflow not detected!');
     }
@@ -343,14 +343,14 @@ class WireTest extends \PHPUnit_Framework_TestCase
 
     public function testSignedLonglongOutOfRangeLower()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->signedLonglongWriteRead('-9223372036854775809');
         $this->fail('Overflow not detected!');
     }
 
     public function testSignedLonglongOutOfRangeUpper()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->signedLonglongWriteRead('9223372036854775808');
         $this->fail('Overflow not detected!');
     }
@@ -368,14 +368,14 @@ class WireTest extends \PHPUnit_Framework_TestCase
 
     public function testShortstrOutOfRangeASCII()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->shortstrWriteRead(str_repeat('z', 256));
         $this->fail('Overflow not detected!');
     }
 
     public function testShortstrOutOfRangeUTFTwoByte()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPInvalidArgumentException');
         $this->shortstrWriteRead(str_repeat("\xd0\xaf", 128));
         $this->fail('Overflow not detected!');
     }

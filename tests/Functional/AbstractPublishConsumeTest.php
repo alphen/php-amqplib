@@ -1,11 +1,11 @@
 <?php
 
-namespace PhpAmqpLib\Tests\Functional;
+namespace AmqpLib\Tests\Functional;
 
-use PhpAmqpLib\Channel\AMQPChannel;
-use PhpAmqpLib\Connection\AMQPSocketConnection;
-use PhpAmqpLib\Connection\AMQPStreamConnection;
-use PhpAmqpLib\Message\AMQPMessage;
+use AmqpLib\Channel\AMQPChannel;
+use AmqpLib\Connection\AMQPSocketConnection;
+use AmqpLib\Connection\AMQPStreamConnection;
+use AmqpLib\Message\AMQPMessage;
 
 abstract class AbstractPublishConsumeTest extends \PHPUnit_Framework_TestCase
 {

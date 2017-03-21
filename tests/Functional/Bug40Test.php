@@ -1,10 +1,10 @@
 <?php
 
-namespace PhpAmqpLib\Tests\Functional;
+namespace AmqpLib\Tests\Functional;
 
-use PhpAmqpLib\Channel\AMQPChannel;
-use PhpAmqpLib\Connection\AMQPConnection;
-use PhpAmqpLib\Message\AMQPMessage;
+use AmqpLib\Channel\AMQPChannel;
+use AmqpLib\Connection\AMQPConnection;
+use AmqpLib\Message\AMQPMessage;
 
 class Bug40Test extends \PHPUnit_Framework_TestCase
 {

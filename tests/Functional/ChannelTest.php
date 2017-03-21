@@ -1,9 +1,9 @@
 <?php
 
-namespace PhpAmqpLib\Tests\Functional;
+namespace AmqpLib\Tests\Functional;
 
-use PhpAmqpLib\Connection\AMQPSocketConnection;
-use PhpAmqpLib\Exception\AMQPProtocolChannelException;
+use AmqpLib\Connection\AMQPSocketConnection;
+use AmqpLib\Exception\AMQPProtocolChannelException;
 
 class ChannelTest extends AbstractPublishConsumeTest
 {
@@ -23,7 +23,7 @@ class ChannelTest extends AbstractPublishConsumeTest
             // Do Nothing
         }
 
-        $this->setExpectedException('\PhpAmqpLib\Exception\AMQPRuntimeException', 'Channel connection is closed.');
+        $this->setExpectedException('\AmqpLib\Exception\AMQPRuntimeException', 'Channel connection is closed.');
         $channel->exchange_declare('tst.exchange2', 'topic', false, true, false);
 
         $channel->close();

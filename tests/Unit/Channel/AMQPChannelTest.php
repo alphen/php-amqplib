@@ -1,17 +1,17 @@
 <?php
 
-namespace PhpAmqpLib\Tests\Unit\Channel;
+namespace AmqpLib\Tests\Unit\Channel;
 
 class AMQPChannelTest extends \PHPUnit_Framework_TestCase
 {
     public function testCloseDoesNotEmitUndefinedPropertyWarningWhenSomeMethodsAreMocked()
     {
-        $mockChannel = $this->getMockBuilder('\PhpAmqpLib\Channel\AMQPChannel')
+        $mockChannel = $this->getMockBuilder('\AmqpLib\Channel\AMQPChannel')
             ->setMethods(array('queue_bind'))
             ->disableOriginalConstructor()
             ->getMock();
 
-        /* @var $mockChannel \PhpAmqpLib\Channel\AMQPChannel */
+        /* @var $mockChannel \AmqpLib\Channel\AMQPChannel */
         $mockChannel->close();
     }
 }

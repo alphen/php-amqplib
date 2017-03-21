@@ -1,8 +1,8 @@
 <?php
 
-namespace PhpAmqpLib\Tests\Unit\Helper\Writer;
+namespace AmqpLib\Tests\Unit\Helper\Writer;
 
-use PhpAmqpLib\Helper\Protocol\Protocol091;
+use AmqpLib\Helper\Protocol\Protocol091;
 
 class Protocol091Test extends \PHPUnit_Framework_TestCase
 {

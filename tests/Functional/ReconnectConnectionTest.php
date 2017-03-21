@@ -1,24 +1,24 @@
 <?php
 
-namespace PhpAmqpLib\Tests\Functional;
+namespace AmqpLib\Tests\Functional;
 
-use PhpAmqpLib\Channel\AMQPChannel;
-use PhpAmqpLib\Connection\AMQPLazyConnection;
-use PhpAmqpLib\Connection\AMQPLazySocketConnection;
-use PhpAmqpLib\Connection\AMQPSocketConnection;
-use PhpAmqpLib\Message\AMQPMessage;
+use AmqpLib\Channel\AMQPChannel;
+use AmqpLib\Connection\AMQPLazyConnection;
+use AmqpLib\Connection\AMQPLazySocketConnection;
+use AmqpLib\Connection\AMQPSocketConnection;
+use AmqpLib\Message\AMQPMessage;
 
 class ReconnectConnectionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Hold onto the connection
-     * @var \PhpAmqpLib\Connection\AbstractConnection
+     * @var \AmqpLib\Connection\AbstractConnection
      */
     protected $connection = null;
 
     /**
      * Hold onto the channel
-     * @var \PhpAmqpLib\Channel\AbstractChannel|AMQPChannel
+     * @var \AmqpLib\Channel\AbstractChannel|AMQPChannel
      */
     protected $channel = null;
 
@@ -101,7 +101,7 @@ class ReconnectConnectionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Publish a message, then get it immediately
-     * @return \PhpAmqpLib\Message\AMQPMessage
+     * @return \AmqpLib\Message\AMQPMessage
      */
     protected function publishGet()
     {

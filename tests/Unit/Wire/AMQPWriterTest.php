@@ -1,10 +1,10 @@
 <?php
 
-namespace PhpAmqpLib\Tests\Unit;
+namespace AmqpLib\Tests\Unit;
 
-use PhpAmqpLib\Wire\AMQPArray;
-use PhpAmqpLib\Wire\AMQPTable;
-use PhpAmqpLib\Wire\AMQPWriter;
+use AmqpLib\Wire\AMQPArray;
+use AmqpLib\Wire\AMQPTable;
+use AmqpLib\Wire\AMQPWriter;
 
 class AMQPWriterTest extends \PHPUnit_Framework_TestCase
 {
@@ -21,7 +21,7 @@ class AMQPWriterTest extends \PHPUnit_Framework_TestCase
 
     protected function setProtoVersion($proto)
     {
-        $r = new \ReflectionProperty('\\PhpAmqpLib\\Wire\\AMQPAbstractCollection', '_protocol');
+        $r = new \ReflectionProperty('\\AmqpLib\\Wire\\AMQPAbstractCollection', '_protocol');
         $r->setAccessible(true);
         $r->setValue(null, $proto);
     }
@@ -116,7 +116,7 @@ class AMQPWriterTest extends \PHPUnit_Framework_TestCase
 
     public function testWriteTableThrowsExceptionOnInvalidType()
     {
-        $this->setExpectedException('PhpAmqpLib\Exception\AMQPOutOfRangeException');
+        $this->setExpectedException('AmqpLib\Exception\AMQPOutOfRangeException');
 
         $this->writer->write_table(array(
             'x-foo' => array('_', 'bar'),

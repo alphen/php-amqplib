@@ -1,8 +1,8 @@
 <?php
 
-namespace PhpAmqpLib\Tests\Unit;
+namespace AmqpLib\Tests\Unit;
 
-use PhpAmqpLib\Wire;
+use AmqpLib\Wire;
 
 class AMQPCollectionTest extends \PHPUnit_Framework_TestCase
 {
@@ -52,7 +52,7 @@ class AMQPCollectionTest extends \PHPUnit_Framework_TestCase
 
     protected function setProtoVersion($proto)
     {
-        $r = new \ReflectionProperty('\\PhpAmqpLib\\Wire\\AMQPAbstractCollection', '_protocol');
+        $r = new \ReflectionProperty('\\AmqpLib\\Wire\\AMQPAbstractCollection', '_protocol');
         $r->setAccessible(true);
         $r->setValue(null, $proto);
     }
@@ -180,7 +180,7 @@ class AMQPCollectionTest extends \PHPUnit_Framework_TestCase
 
     public function testEncodeUnknownDatatype()
     {
-        $this->setExpectedException('PhpAmqpLib\\Exception\\AMQPOutOfBoundsException');
+        $this->setExpectedException('AmqpLib\\Exception\\AMQPOutOfBoundsException');
         $a = new Wire\AMQPArray(array(new \stdClass()));
         $this->fail('Unknown data type not detected!');
     }
@@ -190,7 +190,7 @@ class AMQPCollectionTest extends \PHPUnit_Framework_TestCase
         $this->setProtoVersion(Wire\AMQPAbstractCollection::PROTOCOL_080);
 
         $a = new Wire\AMQPArray();
-        $this->setExpectedException('PhpAmqpLib\\Exception\\AMQPOutOfRangeException');
+        $this->setExpectedException('AmqpLib\\Exception\\AMQPOutOfRangeException');
         $a->push(12345, Wire\AMQPArray::T_INT_LONGLONG);
         $this->fail('Unsupported data type not detected!');
     }
@@ -200,7 +200,7 @@ class AMQPCollectionTest extends \PHPUnit_Framework_TestCase
         $this->setProtoVersion(Wire\AMQPAbstractCollection::PROTOCOL_091);
 
         $a = new Wire\AMQPArray();
-        $this->setExpectedException('PhpAmqpLib\\Exception\\AMQPOutOfRangeException');
+        $this->setExpectedException('AmqpLib\\Exception\\AMQPOutOfRangeException');
         $a->push(12345, 'foo');
         $this->fail('Unsupported data type not detected!');
     }
@@ -210,7 +210,7 @@ class AMQPCollectionTest extends \PHPUnit_Framework_TestCase
         $this->setProtoVersion(Wire\AMQPAbstractCollection::PROTOCOL_RBT);
 
         $a = new Wire\AMQPArray();
-        $this->setExpectedException('PhpAmqpLib\\Exception\\AMQPOutOfRangeException');
+        $this->setExpectedException('AmqpLib\\Exception\\AMQPOutOfRangeException');
         $a->push(12345, Wire\AMQPArray::T_INT_LONGLONG_U);
         $this->fail('Unsupported data type not detected!');
     }
@@ -275,7 +275,7 @@ class AMQPCollectionTest extends \PHPUnit_Framework_TestCase
     {
         $t = new Wire\AMQPTable();
 
-        $this->setExpectedException('PhpAmqpLib\\Exception\\AMQPInvalidArgumentException',
+        $this->setExpectedException('AmqpLib\\Exception\\AMQPInvalidArgumentException',
             'Table key must be non-empty string up to 128 chars in length');
         $t->set('', 'foo');
         $this->fail('Empty table key not detected!');
@@ -286,7 +286,7 @@ class AMQPCollectionTest extends \PHPUnit_Framework_TestCase
         $t = new Wire\AMQPTable();
         $t->set(str_repeat('a', 128), 'foo');
 
-        $this->setExpectedException('PhpAmqpLib\\Exception\\AMQPInvalidArgumentException',
+        $this->setExpectedException('AmqpLib\\Exception\\AMQPInvalidArgumentException',
             'Table key must be non-empty string up to 128 chars in length');
         $t->set(str_repeat('a', 129), 'bar');
         $this->fail('Excessive key length not detected!');
@@ -295,7 +295,7 @@ class AMQPCollectionTest extends \PHPUnit_Framework_TestCase
     public function testPushMismatchedType()
     {
         $a = new Wire\AMQPArray();
-        $this->setExpectedException('PhpAmqpLib\\Exception\\AMQPInvalidArgumentException');
+        $this->setExpectedException('AmqpLib\\Exception\\AMQPInvalidArgumentException');
         $a->push(new Wire\AMQPArray(), Wire\AMQPArray::T_TABLE);
         $this->fail('Mismatched data type not detected!');
     }
@@ -303,7 +303,7 @@ class AMQPCollectionTest extends \PHPUnit_Framework_TestCase
     public function testPushRawArrayWithType()
     {
         $a = new Wire\AMQPArray();
-        $this->setExpectedException('PhpAmqpLib\\Exception\\AMQPInvalidArgumentException',
+        $this->setExpectedException('AmqpLib\\Exception\\AMQPInvalidArgumentException',
             'Arrays must be passed as AMQPArray instance');
         $a->push(array(), Wire\AMQPArray::T_ARRAY);
         $this->fail('Raw array data not detected!');
@@ -312,7 +312,7 @@ class AMQPCollectionTest extends \PHPUnit_Framework_TestCase
     public function testPushRawTableWithType()
     {
         $a = new Wire\AMQPArray();
-        $this->setExpectedException('PhpAmqpLib\\Exception\\AMQPInvalidArgumentException',
+        $this->setExpectedException('AmqpLib\\Exception\\AMQPInvalidArgumentException',
             'Tables must be passed as AMQPTable instance');
         $a->push(array(), Wire\AMQPArray::T_TABLE);
         $this->fail('Raw table data not detected!');
@@ -321,7 +321,7 @@ class AMQPCollectionTest extends \PHPUnit_Framework_TestCase
     public function testPushFloatWithDecimalType()
     {
         $a = new Wire\AMQPArray();
-        $this->setExpectedException('PhpAmqpLib\\Exception\\AMQPInvalidArgumentException',
+        $this->setExpectedException('AmqpLib\\Exception\\AMQPInvalidArgumentException',
             'Decimal values must be instance of AMQPDecimal');
         $a->push(35.2, Wire\AMQPArray::T_DECIMAL);
         $this->fail('Wrong decimal data not detected!');

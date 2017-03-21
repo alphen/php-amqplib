@@ -1,10 +1,10 @@
 <?php
 
-namespace PhpAmqpLib\Tests\Functional;
+namespace AmqpLib\Tests\Functional;
 
-use PhpAmqpLib\Channel\AMQPChannel;
-use PhpAmqpLib\Connection\AMQPConnection;
-use PhpAmqpLib\Exception\AMQPProtocolException;
+use AmqpLib\Channel\AMQPChannel;
+use AmqpLib\Connection\AMQPConnection;
+use AmqpLib\Exception\AMQPProtocolException;
 
 class Bug49Test extends \PHPUnit_Framework_TestCase
 {

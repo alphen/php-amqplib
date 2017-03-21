@@ -1,8 +1,8 @@
 <?php
-namespace PhpAmqpLib\Tests\Unit\Message;
+namespace AmqpLib\Tests\Unit\Message;
 
-use PhpAmqpLib\Message\AMQPMessage;
-use PhpAmqpLib\Wire\AMQPReader;
+use AmqpLib\Message\AMQPMessage;
+use AmqpLib\Wire\AMQPReader;
 
 class AMQPMessageTest extends \PHPUnit_Framework_TestCase
 {
