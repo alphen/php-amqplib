@@ -10,11 +10,6 @@
         "ext-mbstring": "*",
         "alphen/mqpi": "dev-master"
     },
-    "config": {
-    	"github-oauth": {
-      		"github.com": "85cc3de4951a4b2df709a9bac3b5c37bba2ca62e"
-      	}
-    },
   	"repositories" : [ {
 		"type" : "vcs",
 		"url" : "git://github.com/alphen/mqpi.git"
