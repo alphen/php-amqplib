@@ -72,7 +72,7 @@ class Bug256Test extends \PHPUnit_Framework_TestCase
         $msg->set('application_headers', $hdrs);
 
         for ($i = 0; $i < $this->messageCount; $i++) {
-            $this->channel->basic_publish($msg, $this->exchangeName, $this->queueName);
+            $this->channel->publish($msg, $this->exchangeName, $this->queueName);
         }
 
         $this->channel2->basic_consume(

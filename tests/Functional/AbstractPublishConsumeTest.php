@@ -57,7 +57,7 @@ abstract class AbstractPublishConsumeTest extends \PHPUnit_Framework_TestCase
             'reply_to' => 'my_reply_to'
         ));
 
-        $this->channel->basic_publish($msg, $this->exchangeName, $this->queueName);
+        $this->channel->publish($msg, $this->exchangeName, $this->queueName);
 
         $this->channel->basic_consume(
             $this->queueName,
@@ -90,7 +90,7 @@ abstract class AbstractPublishConsumeTest extends \PHPUnit_Framework_TestCase
                 'reply_to' => 'my_reply_to'
             ));
 
-            $this->channel->basic_publish($msg, $this->exchangeName, $this->queueName);
+            $this->channel->publish($msg, $this->exchangeName, $this->queueName);
         }
     }
 

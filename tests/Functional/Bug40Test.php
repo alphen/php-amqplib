@@ -59,9 +59,9 @@ class Bug40Test extends \PHPUnit_Framework_TestCase
     public function testFrameOrder()
     {
         $msg = new AMQPMessage('test message');
-        $this->channel->basic_publish($msg, $this->exchangeName, $this->queueName1);
-        $this->channel->basic_publish($msg, $this->exchangeName, $this->queueName1);
-        $this->channel->basic_publish($msg, $this->exchangeName, $this->queueName2);
+        $this->channel->publish($msg, $this->exchangeName, $this->queueName1);
+        $this->channel->publish($msg, $this->exchangeName, $this->queueName1);
+        $this->channel->publish($msg, $this->exchangeName, $this->queueName2);
 
         $this->channel->basic_consume(
             $this->queueName1,

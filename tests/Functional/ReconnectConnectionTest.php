@@ -112,7 +112,7 @@ class ReconnectConnectionTest extends \PHPUnit_Framework_TestCase
             'reply_to' => 'my_reply_to'
         ));
 
-        $this->channel->basic_publish($msg, $this->exchange, $this->queue);
+        $this->channel->publish($msg, $this->exchange, $this->queue);
 
         return $this->channel->basic_get($this->queue);
     }

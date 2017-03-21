@@ -66,7 +66,7 @@ class FileTransferTest extends \PHPUnit_Framework_TestCase
 
         $msg = new AMQPMessage($this->messageBody, array('delivery_mode' => AMQPMessage::DELIVERY_MODE_NON_PERSISTENT));
 
-        $this->channel->basic_publish($msg, $this->exchangeName, $this->queueName);
+        $this->channel->publish($msg, $this->exchangeName, $this->queueName);
 
         $this->channel->basic_consume(
             $this->queueName,
