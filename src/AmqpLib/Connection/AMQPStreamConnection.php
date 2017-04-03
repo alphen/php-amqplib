@@ -26,6 +26,7 @@ class AMQPStreamConnection extends AbstractConnection
         $port,
         $user,
         $password,
+        $connectOnConstruct = true,
         $vhost = '/',
         $insist = false,
         $login_method = 'AMQPLAIN',
@@ -50,6 +51,7 @@ class AMQPStreamConnection extends AbstractConnection
         parent::__construct(
             $user,
             $password,
+            $connectOnConstruct,
             $vhost,
             $insist,
             $login_method,

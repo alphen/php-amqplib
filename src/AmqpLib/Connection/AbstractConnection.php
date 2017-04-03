@@ -138,6 +138,7 @@ class AbstractConnection extends AbstractChannel implements ConnectionInterface
     public function __construct(
         $user,
         $password,
+        $connectOnConstruct = true,
         $vhost = '/',
         $insist = false,
         $login_method = 'AMQPLAIN',
@@ -177,7 +178,7 @@ class AbstractConnection extends AbstractChannel implements ConnectionInterface
         $this->prepare_content_cache_max_size = 100;
 
         // Lazy Connection waits on connecting
-        if ($this->connectOnConstruct()) {
+        if ($connectOnConstruct) {
             $this->connect();
         }
     }
