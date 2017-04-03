@@ -104,6 +104,14 @@ class StreamIO extends AbstractIO
             && function_exists('pcntl_signal_dispatch')
             && (defined('AMQP_WITHOUT_SIGNALS') ? !AMQP_WITHOUT_SIGNALS : true);
     }
+    
+    public function getHost(){
+        return $this->host;
+    }
+    
+    public function getPort(){
+        return $this->port;
+    }
 
     /**
      * Sets up the stream connection

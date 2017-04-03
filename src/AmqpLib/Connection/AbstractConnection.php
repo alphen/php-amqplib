@@ -122,6 +122,17 @@ class AbstractConnection extends AbstractChannel implements ConnectionInterface
 
     /** @var int Maximal size of $prepare_content_cache */
     private $prepare_content_cache_max_size;
+    
+    private $user;
+    private $password;
+    
+    public function getUser(){
+        return $this->user;
+    }
+    
+    public function getPassword(){
+        return $this->password;
+    }
 
     /**
      * @param string $user
@@ -160,6 +171,8 @@ class AbstractConnection extends AbstractChannel implements ConnectionInterface
         $this->heartbeat = $heartbeat;
 
         if ($user && $password) {
+            $this->user = $user;
+            $this->password = $password;
             $this->login_response = new AMQPWriter();
             $this->login_response->write_table(array(
                 'LOGIN' => array('S', $user),
@@ -852,7 +865,7 @@ class AbstractConnection extends AbstractChannel implements ConnectionInterface
     /**
      * @return \AmqpLib\Wire\IO\AbstractIO
      */
-    protected function getIO()
+    public function getIO()
     {
         return $this->io;
     }
