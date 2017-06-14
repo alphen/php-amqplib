@@ -149,7 +149,7 @@ class AbstractConnection extends AbstractChannel implements ConnectionInterface
     public function __construct(
         $user,
         $password,
-        $connectOnConstruct = true,
+        $connectOnConstruct = false,
         $vhost = '/',
         $insist = false,
         $login_method = 'AMQPLAIN',
